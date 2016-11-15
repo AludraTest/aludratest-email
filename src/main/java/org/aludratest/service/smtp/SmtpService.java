@@ -26,14 +26,24 @@ import org.aludratest.service.AludraService;
  */
 
 @ConfigProperties({
-		@ConfigProperty(name = "host", description = "The host name or IP address of the SMTP server.", type = String.class, required = true),
-		@ConfigProperty(name = "port", description = "The port on which the SMTP server listens for messages.", type = int.class, required = true),
-		@ConfigProperty(name = "user", description = "The user name to use when connecting to a mail server.", type = int.class, required = false),
-		@ConfigProperty(name = "password", description = "The password name to use when connecting to a mail server.", type = int.class, required = false),
-		@ConfigProperty(name = "auth", description = "TODO.", type = boolean.class, required = true),
-		@ConfigProperty(name = "starttlsEnable", description = "TODO.", type = boolean.class, required = false),
-		@ConfigProperty(name = "tls", description = "TODO.", type = boolean.class, required = false),
-		@ConfigProperty(name = "sslCheckserveridentity", description = "TODO.", type = boolean.class, required = false) })
+	@ConfigProperty(name = "host", description = "The host name or IP address of the SMTP server.", 
+			type = String.class, required = true),
+	@ConfigProperty(name = "port", description = "The port on which the SMTP server listens for messages.", 
+			type = int.class, required = true),
+	@ConfigProperty(name = "user", description = "The user name to use when connecting to a mail server.", 
+			type = int.class, required = false),
+	@ConfigProperty(name = "password", description = "The password name to use when connecting to a mail server.", 
+			type = int.class, required = false),
+	@ConfigProperty(name = "auth", description = "If true, attempt to authenticate the user using the " +
+			"AUTH command. Defaults to false.", 
+			type = boolean.class, required = false, defaultValue = "false"),
+	@ConfigProperty(name = "starttlsEnable", description = "enables the use of the STARTTLS command (if " +
+			"supported by the server) to switch the connection to a TLS-protected connection before issuing " +
+			"any login commands. Defaults to false.", 
+			type = boolean.class, required = false, defaultValue = "false"),
+	@ConfigProperty(name = "sslCheckserveridentity", description = "If set to true, checks the server identity " +
+			"as specified by RFC 2595. Defaults to false.", 
+			type = boolean.class, required = false, defaultValue = "false") })
 public interface SmtpService extends AludraService {
 
 	@Override
