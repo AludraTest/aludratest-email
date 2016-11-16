@@ -24,7 +24,15 @@ import org.aludratest.service.Interaction;
  * @author Volker Bergmann
  */
 public interface SmtpInteraction extends Interaction {
-
+	
+	/** Sends a mail using a SMTP Server.
+	 *  @param sender the email address of the sender
+	 *  @param recipients an array of string with the recipients' email addresses
+	 *  @param subject the email subject
+	 *  @param text the email text
+	 *  @param filesToAttach an array of file URIs (Databene-style) to attach to the email 
+	 *  @param mimeTypes the mime types to use for the files listed in the <code>filesToAttach</code> parameter 
+	 */
 	public void sendMail(
 			String sender, 
 			String[] recipients, 

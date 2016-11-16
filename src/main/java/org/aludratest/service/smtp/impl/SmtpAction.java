@@ -99,7 +99,9 @@ public class SmtpAction implements SmtpInteraction, SmtpVerification, SmtpCondit
 
 	@Override
 	public List<Attachment> createAttachments(Object object, String title) {
-		return new ArrayList<Attachment>(); // not supported
+		ArrayList<Attachment> list = new ArrayList<Attachment>();
+		list.add(new StringAttachment(title, String.valueOf(object), "txt"));
+		return list;
 	}
 
 	@Override
@@ -134,7 +136,7 @@ public class SmtpAction implements SmtpInteraction, SmtpVerification, SmtpCondit
 
 	// private helpers ---------------------------------------------------------
 	
-	private void sendPlainTextMail(String sender, String[] recipients, String subject, @AttachParameter("Message text") String text) {
+	private void sendPlainTextMail(String sender, String[] recipients, String subject, String text) {
 		try {
 			Message message = createMessage(sender, recipients, subject);
 			message.setText(text);
@@ -145,7 +147,7 @@ public class SmtpAction implements SmtpInteraction, SmtpVerification, SmtpCondit
 		}
 	}
 
-	private void sendMailWithAttachments(String sender, String[] recipients, String subject, @AttachParameter("Message text") String text,
+	private void sendMailWithAttachments(String sender, String[] recipients, String subject, String text,
 			String[] attachmentUris, String[] mimeTypes) {
 		try {
 			// create the message

@@ -120,6 +120,7 @@ public class EmailData extends Data {
 		}
 		builder.append("Subject:" ).append(subject).append(LF).append(LF);
 		builder.append(text);
+		// TODO list attachments
 		return builder.toString();
 	}
 

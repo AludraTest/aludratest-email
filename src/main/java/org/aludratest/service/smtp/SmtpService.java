@@ -37,11 +37,11 @@ import org.aludratest.service.AludraService;
 	@ConfigProperty(name = "auth", description = "If true, attempt to authenticate the user using the " +
 			"AUTH command. Defaults to false.", 
 			type = boolean.class, required = false, defaultValue = "false"),
-	@ConfigProperty(name = "starttlsEnable", description = "enables the use of the STARTTLS command (if " +
+	@ConfigProperty(name = "startTlsEnable", description = "enables the use of the STARTTLS command (if " +
 			"supported by the server) to switch the connection to a TLS-protected connection before issuing " +
 			"any login commands. Defaults to false.", 
 			type = boolean.class, required = false, defaultValue = "false"),
-	@ConfigProperty(name = "sslCheckserveridentity", description = "If set to true, checks the server identity " +
+	@ConfigProperty(name = "sslCheckServerIdentity", description = "If set to true, checks the server identity " +
 			"as specified by RFC 2595. Defaults to false.", 
 			type = boolean.class, required = false, defaultValue = "false") })
 public interface SmtpService extends AludraService {
