@@ -1,0 +1,1 @@
+org.aludratest.service.smtp.SmtpService=org.aludratest.service.smtp.impl.SmtpServiceImpl
